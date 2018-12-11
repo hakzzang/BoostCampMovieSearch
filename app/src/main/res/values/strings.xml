@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">BoostCampMovieSearch</string>
+    <string name="et_search_word">검색</string>
+</resources>
