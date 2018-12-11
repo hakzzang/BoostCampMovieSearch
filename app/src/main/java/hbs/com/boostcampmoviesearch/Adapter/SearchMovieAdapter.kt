@@ -38,7 +38,7 @@ class SearchMovieAdapter(mContext: Context, arrayList: ArrayList<*>, requestMana
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder.itemViewType == CONNECT_TYPE.MOVIE_SEARCH.status) {
             val movieHolder = holder as MovieBindingHolder
-           
+
         }
     }
 
