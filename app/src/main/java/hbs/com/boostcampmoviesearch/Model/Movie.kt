@@ -1,7 +1,30 @@
 package hbs.com.boostcampmoviesearch.Model
 
-import java.util.*
+import com.google.gson.annotations.SerializedName
 
-class Movie(private var lastBuildDate: Date, private var items:Items){
-    data class Items(var title: String, var link: String, var image: String, var subtitle: String, var pubDate: Date, var director: String, var actor: String, var userRating: Int)
+class Movie(
+    @SerializedName("lastBuildDate") var lastBuildDate: String,
+    @SerializedName("total") var total: Int,
+    @SerializedName("start") var start: Int,
+    @SerializedName("display") var display: Int,
+    @SerializedName("items") var items: Array<Items>
+) {
+    data class Items(
+        @SerializedName("title")
+        val title: String,
+        @SerializedName("link")
+        val link: String,
+        @SerializedName("image")
+        val image: String,
+        @SerializedName("subtitle")
+        val subtitle: String,
+        @SerializedName("pubdate")
+        val pubDate: String,
+        @SerializedName("director")
+        val director: String,
+        @SerializedName("actor")
+        val actor: String,
+        @SerializedName("userRating")
+        val userRating: Double
+    )
 }
