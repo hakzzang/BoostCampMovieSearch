@@ -20,8 +20,8 @@ class SearchService{
         val httpLoggingInterceptor = HttpLoggingInterceptor()
         httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
         return OkHttpClient().newBuilder()
-            .connectTimeout(CONNECT_TIMEOUT, TimeUnit.SECONDS)
-            .addInterceptor(httpLoggingInterceptor)
+            .connectTimeout(CONNECT_TIMEOUT, TimeUnit.SECONDS)//타임아웃 지정
+            .addInterceptor(httpLoggingInterceptor)//httpLog를 찍기 위해서 사용
             .build()
     }
 

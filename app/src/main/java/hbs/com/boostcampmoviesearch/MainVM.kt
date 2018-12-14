@@ -13,8 +13,8 @@ import io.reactivex.schedulers.Schedulers
 import java.util.*
 
 class MainVM(val context: Context, var searchDatas: ArrayList<Movie.Items>, var requestManager: RequestManager) {
-    var searchWord: MutableLiveData<String>? = MutableLiveData()
-    var searchMovieAdapter = SearchMovieAdapter(context, searchDatas, requestManager)
+    var searchWord: MutableLiveData<String>? = MutableLiveData() //검색할 영화 제목
+    var searchMovieAdapter = SearchMovieAdapter(context, searchDatas, requestManager) //어댑터 생성
 
 
     @SuppressLint("CheckResult")
@@ -29,8 +29,8 @@ class MainVM(val context: Context, var searchDatas: ArrayList<Movie.Items>, var 
             clientPw = getResourceString(R.string.naver_client_secret),
             type = "movie.json",
             query = searchWord.value!!
-        ).subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
+        ).subscribeOn(Schedulers.io())//subscribeOn, subscribe시에 사용할 스레드 :  Schedulers.io를 통해 비동기화 시킵니다.
+            .observeOn(AndroidSchedulers.mainThread())//observer시에 사용할 스레드 : Android ui thread에서 동작
             .subscribe({ movie ->
                 movie!!.items.iterator().forEach {
                     searchDatas.add(it)
@@ -42,7 +42,7 @@ class MainVM(val context: Context, var searchDatas: ArrayList<Movie.Items>, var 
     }
 
     private fun clearDatas() {
-        searchMovieAdapter!!.notifyItemRangeRemoved(0, searchDatas.size)
+        searchMovieAdapter.notifyItemRangeRemoved(0, searchDatas.size)//recyclerView ui 초기화
         searchDatas.clear() //이전 데이터를 클리어
     }
 

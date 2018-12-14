@@ -15,7 +15,6 @@ import hbs.com.boostcampmoviesearch.R
 import hbs.com.boostcampmoviesearch.Utils.CONNECT_TYPE
 import hbs.com.boostcampmoviesearch.databinding.ItemMovieBinding
 
-
 class SearchMovieAdapter(
     private val context: Context, private val searchItemList: ArrayList<*>,
     private val requestManager: RequestManager
@@ -39,7 +38,7 @@ class SearchMovieAdapter(
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        if (holder.itemViewType == CONNECT_TYPE.MOVIE_SEARCH.status) {
+        if(holder.itemViewType == CONNECT_TYPE.MOVIE_SEARCH.status) {
             val movieHolder = holder as MovieBindingHolder
             val movieItem = searchItemList[position] as Movie.Items
             movieHolder.binding.setVariable(BR.MovieVM, MovieVM(movieItem))

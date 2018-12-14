@@ -5,27 +5,20 @@ import android.widget.ImageView
 import android.widget.RatingBar
 import com.bumptech.glide.RequestManager
 import hbs.com.boostcampmoviesearch.Model.Movie
-import hbs.com.boostcampmoviesearch.Utils.API_URI
 
 class MovieVM(val movie: Movie.Items) {
-
     companion object {
         @JvmStatic
         @BindingAdapter(value = ["picture","requestManager"])
-        fun setPicture(imageView: ImageView,picture: String, requestManager: RequestManager) {
-            if (picture.isEmpty()) {
-                return
-            }
-            requestManager.load(API_URI.MOVIE_SEARCH.uri + picture).into(imageView)
+        fun ImageView.setPicture(picture: String, requestManager: RequestManager) {
+
+            requestManager.load(picture).into(this)
         }
 
         @JvmStatic
         @BindingAdapter(value = "rating")
-        fun doubleToInt(ratingBar: RatingBar,rating: Double) {
-            if (rating.isNaN()) {
-                return
-            }
-            ratingBar.numStars = rating.toInt()
+        fun RatingBar.doubleToInt(rating: Double) {
+            this.rating = rating.toFloat()
         }
 
     }

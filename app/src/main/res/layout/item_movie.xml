@@ -23,8 +23,9 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            picture="@{MovieVM.movie.image}"
-            requestManager="@{requestManager}"/>
+            android:scaleType="fitXY"
+            bind:picture="@{MovieVM.movie.image}"
+            bind:requestManager="@{requestManager}"/>
 
         <LinearLayout
             android:layout_width="0dp"
@@ -43,7 +44,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:clickable="false"
-                rating="@{MovieVM.movie.userRating}"/>
+                bind:rating="@{MovieVM.movie.userRating}"/>
 
             <TextView
                 android:layout_width="match_parent"
