@@ -13,55 +13,69 @@
         <variable
             name="requestManager"
             type="com.bumptech.glide.RequestManager"/>
+        <variable
+            name="mContext"
+            type="android.content.Context"></variable>
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="216dp">
+        android:layout_height="wrap_content"
+        android:minHeight="148dp"
+        android:layout_margin="4dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        bind:startActivity="@{mContext}"
+        bind:linkUrl="@{MovieVM.movie.link}">
 
         <ImageView
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_height="132dp"
+            android:layout_weight=".7"
             android:scaleType="fitXY"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
             bind:picture="@{MovieVM.movie.image}"
             bind:requestManager="@{requestManager}"/>
 
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="2"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="@{MovieVM.movie.title}"/>
+                android:layout_height="wrap_content"
+                bind:htmlText="@{MovieVM.movie.title}"/>
 
             <RatingBar
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="?android:attr/ratingBarStyleIndicator"
+                android:scaleX=".5"
+                android:scaleY=".5"
+                android:max="5"
+                android:numStars="5"
+                android:transformPivotX="0dp"
+                android:transformPivotY="0dp"
+                android:stepSize="0.5"
                 android:clickable="false"
                 bind:rating="@{MovieVM.movie.userRating}"/>
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
                 android:text="@{MovieVM.movie.pubDate}"/>
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
                 android:text="@{MovieVM.movie.actor}"/>
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
                 android:text="@{MovieVM.movie.director}"/>
 
         </LinearLayout>

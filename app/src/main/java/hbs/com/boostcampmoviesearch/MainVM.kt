@@ -12,6 +12,10 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import java.util.*
 
+/**
+ * @author 문병학
+ * MainViewModel 클래스입니다
+ * */
 class MainVM(val context: Context, var searchDatas: ArrayList<Movie.Items>, var requestManager: RequestManager) {
     var searchWord: MutableLiveData<String>? = MutableLiveData() //검색할 영화 제목
     var searchMovieAdapter = SearchMovieAdapter(context, searchDatas, requestManager) //어댑터 생성
