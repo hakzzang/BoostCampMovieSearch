@@ -61,7 +61,7 @@
                 android:transformPivotY="0dp"
                 android:stepSize="0.5"
                 android:clickable="false"
-                bind:rating="@{MovieVM.movie.userRating}"/>
+                bind:rating="@{MovieVM.movie.userRating/2.0}"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -71,12 +71,14 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{MovieVM.movie.actor}"/>
+                android:text="@{MovieVM.movie.director}"
+                />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{MovieVM.movie.director}"/>
+                android:text="@{MovieVM.movie.actor}"
+                />
 
         </LinearLayout>
 
